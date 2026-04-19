@@ -1,0 +1,31 @@
+========================================================================
+AUDIT STUDY — ANALYSIS LOG (seed = 42)
+========================================================================
+
+Descriptive statistics (callback rate by condition):
+ethnicity gender  callback_rate  callbacks   n  ci_low  ci_high
+  English Female          0.260         52 200   0.204    0.325
+  English   Male          0.245         49 200   0.191    0.309
+  Turkish Female          0.115         23 200   0.078    0.167
+  Turkish   Male          0.140         28 200   0.099    0.195
+
+Pearson chi-square (ethnicity x callback): chi2(1) = 20.31, p = 0.0000
+
+Logistic regression — odds ratios, 95% Wald CIs, p-values:
+                   OR  CI_low  CI_high  p_value
+Intercept       0.325   0.235    0.448    0.000
+turkish         0.502   0.300    0.838    0.008
+female          1.083   0.689    1.700    0.730
+turkish:female  0.737   0.351    1.550    0.421
+
+Omnibus LLR p-value: 9.115e-05
+McFadden pseudo R-squared: 0.027
+
+Bayesian supplementary analysis (Beta-Binomial, 50,000 draws):
+          cell  posterior_mean  CI_2.5  CI_97.5
+English-Female           0.262   0.204    0.325
+  English-Male           0.247   0.191    0.308
+Turkish-Female           0.119   0.078    0.166
+  Turkish-Male           0.143   0.099    0.195
+
+Posterior probability that Turkish rate < English rate: 1.0000
